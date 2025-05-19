@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coming Soon | Your Company Name</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+    }
+
+    .container {
+      text-align: center;
+      background: white;
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      max-width: 480px;
+      width: 90%;
+      position: relative;
+    }
+
+    .logo {
+      width: 150px;
+      height: auto;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+
+    .contact-btn {
+      display: inline-block;
+      background-color: #007BFF;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Contact Info Popup */
+    .popup-info {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      background-color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      z-index: 1001;
+      width: 90%;
+      max-width: 400px;
+      transition: transform 0.3s ease;
+    }
+
+    .popup-info.active {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .popup-info h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .popup-info p {
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .logo {
+        width: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Main Content -->
+  <div class="container">
+    <img src="assets/images/logo.png" alt="Company Logo" class="logo" />
+    <h1>We're Building Something Great!</h1>
+    <p>Our website is currently under development. We’ll be launching very soon. Thank you for your patience!</p>
+    <button class="contact-btn" onclick="openInfo()">Contact Us</button>
+  </div>
+
+  <!-- Company Info Popup -->
+  <div class="overlay" id="overlay" onclick="closeInfo()"></div>
+  <div class="popup-info" id="popupInfo">
+    <h2>Contact Information</h2>
+    <p><strong>Company Name:</strong> LinkStatic Techno.</p>
+    <p><strong>Email:</strong> info@linkstatic.live</p>
+    <p><strong>Phone:</strong> +91 9022870767</p>
+    <p><strong>Address:</strong> LinkStatic Techno, Sitapura, Jaipur</p>
+    <button class="contact-btn" onclick="closeInfo()">Close</button>
+  </div>
+
+  <script>
+    function openInfo() {
+      document.getElementById("popupInfo").classList.add("active");
+      document.getElementById("overlay").classList.add("active");
+    }
+
+    function closeInfo() {
+      document.getElementById("popupInfo").classList.remove("active");
+      document.getElementById("overlay").classList.remove("active");
+    }
+  </script>
+
+</body>
+</html>
